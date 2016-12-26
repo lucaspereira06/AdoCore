@@ -7,7 +7,7 @@ To include, follow the steps below:
   
   Install-Package Ado
 
-- In Method ConfigureServices add this code to include provider of SQL SERVER:
+- In Method ConfigureServices on Startup.cs add this code to include provider of SQL SERVER:
   
   System.Data.Common.DbProviderFactories.AddSqlServerFactory();
   
