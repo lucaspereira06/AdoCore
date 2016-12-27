@@ -12,10 +12,13 @@ To include, follow the steps below:
   System.Data.Common.DbProviderFactories.AddSqlServerFactory();
   
 - In file appsettings.json add the follow code:
-  
+  +
+[source,json]
+-----------------
   "ConnectionStrings": {
     "DefaultConnection": "YourConnectionStringHere"
   }
+-----------------
  
 Done! Your project is configured to use AdoNet sctructure.
 
