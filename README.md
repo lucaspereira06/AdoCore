@@ -62,7 +62,7 @@ public void Update(Student student){
        //The second parameter in Function ExecutarComando is if commit or no. Pass true to commit.
        
        var rowsAffected = 
-       context.ExecutarComando("update student set name = @1, age = @2 where idStudent = @0", true, student.IdStudent, student.Name, student.Age);
+       context.ExecuteCommand("update student set name = @1, age = @2 where idStudent = @0", true, student.IdStudent, student.Name, student.Age);
    }
 }
 
@@ -71,7 +71,7 @@ public void Delete(int idStudent){
    using (var context = new DataContext())
    { 
        var rowsAffected = 
-       context.ExecutarComando("delete student where idStudent = @0", true, idStudent);
+       context.ExecuteCommand("delete student where idStudent = @0", true, idStudent);
    }
 }
 
