@@ -60,7 +60,7 @@ public int Include(Student student){
    {
        var idStudent = context.ExecuteGetIdentity("insert into student (name, age) values (@0, @1)", student.Name, student.Age);
        
-       //If you want commit now call method below else you could call later.
+       //If you want commit now, call method below, else, you could call later.
        context.Commit();
        
        return idStudent;  
@@ -75,7 +75,7 @@ public void Update(Student student){
    
    using (var context = new DataContext())
    {
-       //The second parameter in Function ExecutarComando is if commit or no. Pass true to commit.
+       //The second parameter in method ExecuteCommand is if commit or no. Pass true to commit.
        
        var rowsAffected = 
        context.ExecuteCommand("update student set name = @1, age = @2 where idStudent = @0", true, student.IdStudent, student.Name, student.Age);
