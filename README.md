@@ -17,26 +17,31 @@ To include, follow the steps below:
   "ConnectionStrings": {
     "DefaultConnection": "YourConnectionStringHere"
   }
-
 ```
  
 Done! Your project is configured to use AdoNet sctructure.
 
 You could use this structure as follows:
 
+```
 using Ado;
-using System.Linq;
+```
 
-//Without parameters
-public List<Student> GetAllStudents(){
+- Without parameters
+
+```
+public IEnumerable<Student> GetAllStudents(){
    
    using (var context = new DataContext())
    {
        return context.GetWhere<Student>("SELECT * FROM Student").ToList();
    }
 }
+```
 
-//With parameters
+- With parameters
+
+```
 public List<Student> GetAllStudentsInSchoolAndCourse(int idSchool, int idCourse){
    
    using (var context = new DataContext())
@@ -44,7 +49,11 @@ public List<Student> GetAllStudentsInSchoolAndCourse(int idSchool, int idCourse)
        return context.GetWhere<Student>("SELECT * FROM Student Where idScholl = @0 and idCourse = @1", idScholl, idCourse).ToList();
    }
 }
+```
 
+- To Include data
+
+```
 public int Include(Student student){
    
    using (var context = new DataContext())
@@ -57,7 +66,11 @@ public int Include(Student student){
        return idStudent;  
    }
 }
+```
 
+- To Update
+
+```
 public void Update(Student student){
    
    using (var context = new DataContext())
@@ -68,7 +81,11 @@ public void Update(Student student){
        context.ExecuteCommand("update student set name = @1, age = @2 where idStudent = @0", true, student.IdStudent, student.Name, student.Age);
    }
 }
+```
 
+- To Delete data
+
+```
 public void Delete(int idStudent){
    
    using (var context = new DataContext())
@@ -77,6 +94,7 @@ public void Delete(int idStudent){
        context.ExecuteCommand("delete student where idStudent = @0", true, idStudent);
    }
 }
+```
 
 ----------------------------- MULTIPLE CONNECTIONS -------------------------------------------
 
@@ -84,15 +102,18 @@ To use another connection string, you can do that:
 
 - Include this in appSettings.json:
 
+```
 "ConnectionStrings": {
     "DefaultConnection": "YourConnectionStringHere",
     "MyAnotherConnectionString": "YourAnotherConnectionStringHere",
   }
+```
 
 - And use :
   
+```
   using (var context = new DataContext("MyAnotherConnectionString"))
-
+```
 
 
   
