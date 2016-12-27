@@ -34,7 +34,7 @@ public IEnumerable<Student> GetAllStudents(){
    
    using (var context = new DataContext())
    {
-       return context.GetWhere<Student>("SELECT * FROM Student").ToList();
+       return context.GetWhere<Student>("SELECT * FROM Student");
    }
 }
 ```
@@ -42,11 +42,11 @@ public IEnumerable<Student> GetAllStudents(){
 - With parameters
 
 ```
-public List<Student> GetAllStudentsInSchoolAndCourse(int idSchool, int idCourse){
+public IEnumerable<Student> GetAllStudentsInSchoolAndCourse(int idSchool, int idCourse){
    
    using (var context = new DataContext())
    {
-       return context.GetWhere<Student>("SELECT * FROM Student Where idScholl = @0 and idCourse = @1", idScholl, idCourse).ToList();
+       return context.GetWhere<Student>("SELECT * FROM Student Where idScholl = @0 and idCourse = @1", idScholl, idCourse);
    }
 }
 ```
