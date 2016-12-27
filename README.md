@@ -90,6 +90,8 @@ public void Delete(int idStudent){
    
    using (var context = new DataContext())
    { 
+       //The second parameter in method ExecuteCommand is if commit or no. Pass true to commit.
+   
        var rowsAffected = 
        context.ExecuteCommand("delete student where idStudent = @0", true, idStudent);
    }
