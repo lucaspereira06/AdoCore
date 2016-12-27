@@ -1,5 +1,5 @@
 ﻿using Ado.Common;
-using Ado.Enumeradores;
+using Ado.Enumerators;
 using System;
 using System.Data;
 
@@ -16,7 +16,7 @@ namespace Ado.Interfaces
         int Execute(string command, object[] commandParams);
         int ExecuteGetIdentity(string command, object[] commandParams);
         object ExecuteGetValue(string query, object[] queryParams);
-        void CriarConexao(CustomConnectionStringSettings settings, Transaction transaction);
+        void CreateConnection(CustomConnectionStringSettings settings, Transaction transaction);
         void Commit();
         void RollBack();
     }

@@ -1,4 +1,4 @@
-﻿namespace Ado.Enumeradores
+﻿namespace Ado.Enumerators
 {
     public enum Transaction
     {

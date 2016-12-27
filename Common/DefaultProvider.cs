@@ -1,4 +1,4 @@
-﻿using Ado.Enumeradores;
+﻿using Ado.Enumerators;
 using Ado.Interfaces;
 using System;
 using System.Data;
@@ -19,7 +19,7 @@ namespace Ado.Common
             if (DbTransaction != null) DbTransaction.Commit();
         }
 
-        public void CriarConexao(CustomConnectionStringSettings connectionSettings, Transaction transaction)
+        public void CreateConnection(CustomConnectionStringSettings connectionSettings, Transaction transaction)
         {
             TransactionMode = transaction;
             DbConnection = DbProviderFactories.GetFactory(connectionSettings.ProviderName).CreateConnection();

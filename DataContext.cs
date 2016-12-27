@@ -1,5 +1,5 @@
 ﻿using Ado.Common;
-using Ado.Enumeradores;
+using Ado.Enumerators;
 using Ado.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace Ado
         {
             return Provider.Query(query, queryParams);
         }
-        public int ExecutarComando(string command, bool commit = true, params object[] commandParams)
+        public int ExecuteComand(string command, bool commit = true, params object[] commandParams)
         {
             int rowsAffects = 0;
             try
@@ -49,7 +49,7 @@ namespace Ado
                 if (commit)
                     Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 RollBack();
                 Dispose();

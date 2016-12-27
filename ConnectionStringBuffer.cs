@@ -50,7 +50,7 @@ namespace Ado
 
             if (setting == null)
             {
-                var exceptionMessage = string.Format("ConnectionString :{0} não encontrada.", connectionName);
+                var exceptionMessage = string.Format("ConnectionString :{0} not found.", connectionName);
                 throw new Exception(exceptionMessage);
             }
 

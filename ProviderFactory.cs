@@ -1,5 +1,5 @@
 ﻿using Ado.Common;
-using Ado.Enumeradores;
+using Ado.Enumerators;
 using Ado.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace Ado
             if (Providers.ContainsKey(providerName))
                 return (IDataProvider)Activator.CreateInstance(Providers[providerName]);
 
-            throw new Exception(string.Format("Provider não suportado : {0}", providerName));
+            throw new Exception(string.Format("Unsupported provider : {0}", providerName));
         }
 
         private IDbConnection CreateConnection(string providerName, CustomConnectionStringSettings settings)
@@ -56,7 +56,7 @@ namespace Ado
         public static void AddProvider(string providerName, Type providerType)
         {
             if (string.IsNullOrWhiteSpace(providerName))
-                throw new ArgumentException("Parametro 'providerName' não pode ser nulo.");
+                throw new ArgumentException("Parameter 'providerName' can not be null.");
 
             if (providerType == null)
                 throw new ArgumentNullException("providerType");

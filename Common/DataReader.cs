@@ -55,7 +55,7 @@ namespace Ado.Common
                         }
                         catch (FormatException err)
                         {
-                            var message = string.Format("Erro ao converter column {0} para propriedade {1} {2}.{3}",
+                            var message = string.Format("Error to convert column {0} to property {1} {2}.{3}",
                                 property.Name, property.PropertyType.Name, typeof(T).Name, property.Name);
 
                             throw new FormatException(message, err);
