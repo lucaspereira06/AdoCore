@@ -46,7 +46,7 @@ public IEnumerable<Student> GetAllStudentsInSchoolAndCourse(int idSchool, int id
    
    using (var context = new DataContext())
    {
-       return context.GetWhere<Student>("SELECT * FROM Student Where idScholl = @0 and idCourse = @1", idScholl, idCourse);
+       return context.GetWhere<Student>("SELECT * FROM Student Where idSchool = @0 and idCourse = @1", idSchool, idCourse);
    }
 }
 ```
