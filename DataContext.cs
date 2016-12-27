@@ -40,7 +40,7 @@ namespace Ado
         {
             return Provider.Query(query, queryParams);
         }
-        public int ExecuteComand(string command, bool commit = true, params object[] commandParams)
+        public int ExecuteCommand(string command, bool commit = true, params object[] commandParams)
         {
             int rowsAffects = 0;
             try
