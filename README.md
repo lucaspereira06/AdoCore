@@ -56,7 +56,7 @@ public IEnumerable<Student> GetAllStudentsInSchoolAndCourse(int idSchool, int id
 ```
 public int Include(Student student){
    
-   using (var context = new DataContext())
+   using (var context = new DataContext(Ado.Enumeradores.Transaction.Begin))
    {
        var idStudent = context.ExecuteGetIdentity("insert into student (name, age) values (@0, @1)", student.Name, student.Age);
        
@@ -73,7 +73,7 @@ public int Include(Student student){
 ```
 public void Update(Student student){
    
-   using (var context = new DataContext())
+   using (var context = new DataContext(Ado.Enumeradores.Transaction.Begin))
    {
        //The second parameter in method ExecuteCommand is if commit or no. Pass true to commit.
        
@@ -88,7 +88,7 @@ public void Update(Student student){
 ```
 public void Delete(int idStudent){
    
-   using (var context = new DataContext())
+   using (var context = new DataContext(Ado.Enumeradores.Transaction.Begin))
    { 
        //The second parameter in method ExecuteCommand is if commit or no. Pass true to commit.
    
